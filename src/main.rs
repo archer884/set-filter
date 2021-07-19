@@ -1,5 +1,35 @@
-//! Set-filter performs fast, in-memory operations over sets represented as
-//! text streams.
+/*!
+# set-filter
+
+Set-filter performs fast, in-memory operations over sets represented as
+text streams.
+
+I know, you jerks are gonna say, "but how fast is it?" The answer is it's
+faster than the one-off powershell script I wrote that does the same thing,
+both in the amount of time required to rewrite it (read: zero) and the time
+required to run it. Feel free to compare it against your own one-off shell
+script if you want damned benchmarks.
+
+```
+set-filter 0.1.0
+
+USAGE:
+    sf.exe [FLAGS] [path] [SUBCOMMAND]
+
+FLAGS:
+    -h, --help       Prints help information
+    -r, --reverse    take only repeated items
+    -V, --version    Prints version information
+
+ARGS:
+    <path>    the base set (optional; input may be taken from stdin instead)
+
+SUBCOMMANDS:
+    diff         set difference
+    help         Prints this message or the help of the given subcommand(s)
+    intersect    set intersection
+```
+*/
 
 use std::{
     fmt::Display,
