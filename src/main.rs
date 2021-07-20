@@ -8,8 +8,15 @@ I know, you jerks are gonna say, "but how fast is it?" The answer is it's
 faster than the one-off powershell script I wrote that does the same thing,
 both in the amount of time required to rewrite it (read: zero) and the time
 required to run it. Feel free to compare it against your own one-off shell
-script if you want damned benchmarks.
+script if you want damned benchmarks. Here's mine:
 
+```shell
+$a = cat file.txt
+$b = cat other.txt
+$c = $a | ? { $b -contains $_ }
+```
+
+## `set-filter --help`
 ```
 set-filter 0.1.0
 
