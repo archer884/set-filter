@@ -62,13 +62,13 @@ struct Opts {
 #[derive(Clone, Debug, StructOpt)]
 enum Command {
     /// set difference
-    Diff(Diff),
+    Except(Except),
     /// set intersection
     Intersect(Intersect),
 }
 
 #[derive(Clone, Debug, StructOpt)]
-struct Diff {
+struct Except {
     pub path: String,
 }
 
@@ -96,7 +96,7 @@ fn main() {
 
 fn run(opts: &Opts) -> io::Result<()> {
     match &opts.command {
-        Some(Command::Diff(Diff { path })) => print_difference(opts, path),
+        Some(Command::Except(Except { path })) => print_difference(opts, path),
         Some(Command::Intersect(Intersect { path })) => print_intersection(opts, &path),
         None => print_unique(opts),
     }
